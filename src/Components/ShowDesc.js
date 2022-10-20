@@ -28,11 +28,16 @@ const ShowDesc = () => {
 
     return (
         <>
-        <div className="headers">TV Show description page</div>
+        
         <div>{id}</div> 
         <div>{show.name}</div>
 
-        <button onClick={()=>{
+        <div className="headers">
+            <div className="title">TV Show description page</div>
+        </div>
+
+        <div className="navigators">
+        <button className="prev" onClick={()=>{
             setShowList(JSON.parse(localStorage.getItem('showList')));
             for(var i=0; i<showList.length;i++){
                 
@@ -42,7 +47,7 @@ const ShowDesc = () => {
             }
         }}><Link to={'/tv/details/'+(id-1)}>PREV </Link></button>
 
-        <button onClick={()=>{
+        <button className="next" onClick={()=>{
             setShowList(JSON.parse(localStorage.getItem('showList')));
             for(var i=0; i<showList.length;i++){
                 
@@ -51,6 +56,15 @@ const ShowDesc = () => {
                 }
             }
         }}><Link to={'/tv/details/'+(parseInt(id)+1)}>NEXT </Link></button>
+
+</div>
+
+        <div className="details">
+            <img className="poster" src={ 'https://image.tmdb.org/t/p/w500' + show.poster_path } alt="Loading..."></img>
+            <div className="title">{show.name}</div>
+            <div className="desc">{show.overview}</div>
+        </div>
+        
         </>
     );
 }

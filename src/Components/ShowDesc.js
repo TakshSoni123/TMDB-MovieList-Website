@@ -7,11 +7,11 @@ const ShowDesc = () => {
     var showList = [];
 
     const [show, setShow] = useState({});
-
+    const [showList, setShowList] = useState([]);
 
 
     useEffect(() => {
-        showList = JSON.parse(localStorage.getItem('showList'));
+        setShowList(JSON.parse(localStorage.getItem('showList')));
         for(var i=0; i<showList.length;i++){
             
             if(showList[i].ourId === parseInt(id)){

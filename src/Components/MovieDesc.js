@@ -7,11 +7,12 @@ const MovieDesc = () => {
     var movieList = [];
 
     const [movie, setMovie] = useState({});
+    const [movieList, setMovieList] = useState([]);
 
 
 
     useEffect(() => {
-        movieList = JSON.parse(localStorage.getItem('movieList'));
+        setMovieList(JSON.parse(localStorage.getItem('movieList')));
         for(var i=0; i<movieList.length;i++){
             
             if(movieList[i].ourId === parseInt(id)){

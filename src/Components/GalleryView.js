@@ -62,8 +62,9 @@ class GalleryView extends React.Component{
 
     async componentDidMount() {
         var i = 1;
-        var temp = []
+        
         for(i=1; i<20;i++){
+            var temp = []
             await this.getTVShows(i).then(async () => {
                 temp = await this.unwindMovies();
             }).then(() => {

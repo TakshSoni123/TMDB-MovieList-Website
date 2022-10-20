@@ -67,7 +67,6 @@ class ListView extends React.Component{
                         titles.add(mov[i][j].title);
                         k+=1;
                 }
-                
             }
         }
         
@@ -78,16 +77,17 @@ class ListView extends React.Component{
     async componentDidMount() {
         var i = 1;
         
+
         for(i=1; i<20;i++){
             var temp = []
-            await this.getMovieList(i).then(async () => {
-                temp = await this.unwindMovies();
-            }).then(() => {
-                // setTimeout(() => console.log(temp), 1000);
-                setTimeout(() => this.setState({movies : temp}), 1000);
-            });    
-            
+            await this.getMovieList(i)  
         }
+
+        await this.unwindMovies()
+        .then((res) => {
+            console.log(res);
+            setTimeout(() => this.setState({movies : res}), 2000);
+        });  
         
         setTimeout(() => console.log("movies"), 1000);
         setTimeout(() => console.log(this.state.movies), 1000);
@@ -98,7 +98,7 @@ class ListView extends React.Component{
 
         setTimeout(() => {
             localStorage.setItem('movieList', JSON.stringify(this.state.movies));
-        },1000)
+        },5000)
 
     }
 

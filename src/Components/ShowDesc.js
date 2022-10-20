@@ -11,6 +11,10 @@ const ShowDesc = () => {
 
     useEffect(() => {
         setShowList(JSON.parse(localStorage.getItem('showList')));
+    }, [])
+
+    useEffect(() => {
+        
         for(var i=0; i<showList.length;i++){
             
             if(showList[i].ourId === parseInt(id)){

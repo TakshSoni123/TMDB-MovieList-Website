@@ -64,15 +64,13 @@ class GalleryView extends React.Component{
         var i = 1;
         
         for(i=1; i<20;i++){
-            var temp = []
-            await this.getTVShows(i).then(async () => {
-                temp = await this.unwindMovies();
-            }).then(() => {
-                // setTimeout(() => console.log(temp), 1000);
-                setTimeout(() => this.setState({shows : temp}), 1000);
-            });    
-            
+            await this.getTVShows(i)
         }
+
+        await this.unwindMovies()
+        .then((res) => {
+            setTimeout(() => this.setState({shows : res}), 2000);
+        });    
         
         setTimeout(() => console.log("movies"), 1000);
         setTimeout(() => console.log(this.state.shows), 1000);
@@ -83,7 +81,7 @@ class GalleryView extends React.Component{
 
         setTimeout(() => {
             localStorage.setItem('showList', JSON.stringify(this.state.shows));
-        },1000)
+        },5000)
 
     }
 

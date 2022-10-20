@@ -1,6 +1,6 @@
 import React from "react";
 
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 
 import Home from './Home.js';
 import ListView from './ListView';

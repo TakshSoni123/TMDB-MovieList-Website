@@ -79,7 +79,6 @@ class ListView extends React.Component{
         
 
         for(i=1; i<20;i++){
-            var temp = []
             await this.getMovieList(i)  
         }
 

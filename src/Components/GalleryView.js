@@ -30,7 +30,6 @@ class GalleryView extends React.Component{
 
 
     async getTVShows(i){
-        var x = []
         await axios.get('https://api.themoviedb.org/3/tv/popular?api_key=80a29641d1701b345a02a17ef6800048&language=en-US&page='+i).then(res => {
             
             this.setState({shows : [...this.state.shows, res.data.results]})
@@ -50,7 +49,7 @@ class GalleryView extends React.Component{
             for(var j=0;j<mov[i].length;j++){
                 if(!titles.has(mov[i][j].name)){
                         mov[i][j].ourId = k
-                        temp = [...temp, mov[i][j]];
+                        temp.push(mov[i][j]);
                         titles.add(mov[i][j].name);
                         k+=1;
                 }

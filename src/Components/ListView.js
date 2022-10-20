@@ -43,7 +43,6 @@ class ListView extends React.Component{
     }
 
     async getMovieList(i){
-        var x = []
         await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=80a29641d1701b345a02a17ef6800048&language=en-US&page='+i).then(res => {
             
             this.setState({movies : [...this.state.movies, res.data.results]})
@@ -55,8 +54,6 @@ class ListView extends React.Component{
 
     async unwindMovies(){
 
-        
-
         var temp = [];
         var mov = this.state.movies;
 
@@ -66,13 +63,14 @@ class ListView extends React.Component{
             for(var j=0;j<mov[i].length;j++){
                 if(!titles.has(mov[i][j].title)){
                         mov[i][j].ourId = k;
-                        temp = [...temp, mov[i][j]];
+                        temp.push(mov[i][j]);
                         titles.add(mov[i][j].title);
                         k+=1;
                 }
                 
             }
         }
+        
         return temp;
 
     }

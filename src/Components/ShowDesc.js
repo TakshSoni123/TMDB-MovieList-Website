@@ -20,7 +20,7 @@ const ShowDesc = () => {
         }
 
 
-    }, []);
+    }, [id, showList]);
 
     return (
         <>

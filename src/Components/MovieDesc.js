@@ -22,7 +22,7 @@ const MovieDesc = () => {
 
         // console.log(movie);
 
-    }, []);
+    }, [id, movieList]);
 
     return (
         <>

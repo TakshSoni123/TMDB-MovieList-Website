@@ -33,11 +33,8 @@ const MovieDesc = () => {
         <div className="headers">
             <div className="title">Movie description page</div>
         </div>
-        <div className="details">
-            <img className="poster" src={ 'https://image.tmdb.org/t/p/w500' + movie.poster_path } alt="Loading..."></img>
-            <div className="title">{movie.title}</div>
-            <div className="desc">{movie.overview}</div>
-        </div>
+
+        <div className="navigators">
         <button className="prev" onClick={()=>{
             setMovieList(JSON.parse(localStorage.getItem('movieList')));
             for(var i=0; i<movieList.length;i++){
@@ -57,6 +54,14 @@ const MovieDesc = () => {
                 }
             }
         }}><Link to={'/movie/details/'+(parseInt(id)+1)}>NEXT </Link></button>
+        </div>
+
+        <div className="details">
+            <img className="poster" src={ 'https://image.tmdb.org/t/p/w500' + movie.poster_path } alt="Loading..."></img>
+            <div className="title">{movie.title}</div>
+            <div className="desc">{movie.overview}</div>
+        </div>
+        
         </>
     );
 }

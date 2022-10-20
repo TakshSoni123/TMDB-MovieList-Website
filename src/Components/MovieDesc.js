@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 const MovieDesc = () => {
     const { id } = useParams();
-    var movieList = [];
 
     const [movie, setMovie] = useState({});
     const [movieList, setMovieList] = useState([]);
@@ -32,7 +31,7 @@ const MovieDesc = () => {
         <div>{movie.title}</div>
 
         <button onClick={()=>{
-            movieList = JSON.parse(localStorage.getItem('movieList'));
+            setMovieList(JSON.parse(localStorage.getItem('movieList')));
             for(var i=0; i<movieList.length;i++){
                 
                 if(movieList[i].ourId === (parseInt(id)-1)){
@@ -42,7 +41,7 @@ const MovieDesc = () => {
         }}><Link to={'/movie/details/'+(id-1)}>PREV </Link></button>
 
         <button onClick={()=>{
-            movieList = JSON.parse(localStorage.getItem('movieList'));
+            setMovieList(JSON.parse(localStorage.getItem('movieList')));
             for(var i=0; i<movieList.length;i++){
                 
                 if(movieList[i].ourId === (parseInt(id)+1)){

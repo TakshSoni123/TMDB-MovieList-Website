@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 const ShowDesc = () => {
     const { id } = useParams();
-    var showList = [];
 
     const [show, setShow] = useState({});
     const [showList, setShowList] = useState([]);
@@ -30,7 +29,7 @@ const ShowDesc = () => {
         <div>{show.name}</div>
 
         <button onClick={()=>{
-            showList = JSON.parse(localStorage.getItem('showList'));
+            setShowList(JSON.parse(localStorage.getItem('showList')));
             for(var i=0; i<showList.length;i++){
                 
                 if(showList[i].ourId === (parseInt(id)-1)){
@@ -40,7 +39,7 @@ const ShowDesc = () => {
         }}><Link to={'/tv/details/'+(id-1)}>PREV </Link></button>
 
         <button onClick={()=>{
-            showList = JSON.parse(localStorage.getItem('showList'));
+            setShowList(JSON.parse(localStorage.getItem('showList')));
             for(var i=0; i<showList.length;i++){
                 
                 if(showList[i].ourId === (parseInt(id)+1)){
